@@ -1,1 +1,27 @@
+name: deploy-code
 
+on:
+  workflow_call:
+    inputs:
+      node-version:
+        required: false
+        type: number
+        default: 16
+      npm_command:
+        required: true
+        type: string
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        if: ${{ inputs.node-version }} != ""
+        with:
+          node-version: 14
+      - run: |
+          "${{ inputs.npm_command }}"
+      #- run: npm run build --if-present
+      #- run: npm test
