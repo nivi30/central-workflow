@@ -23,9 +23,9 @@ jobs:
         with:
           node-version: 14
       - run: |
-          if [[ ${{ inputs.npm_command }} != '' ]]
+          if [[ ${{ inputs.npm_command }} == 'build_npm' ]]
           then
-            ${{ inputs.npm_command }}
+            npm install
           fi
       #- run: npm run build --if-present
       #- run: npm test
