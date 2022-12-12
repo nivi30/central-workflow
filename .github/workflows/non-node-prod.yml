@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: 14
       - run: |
-          if [[ ${{ inputs.npm_command }} != '' ]]
+          if [[ ${{ inputs.npm_command }} == 'npm install' ]]
           then
             ${{ inputs.npm_command }}
           fi
