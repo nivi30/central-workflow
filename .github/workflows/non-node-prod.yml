@@ -25,7 +25,7 @@ jobs:
       - run: |
           if [[ ${{ inputs.npm_command }} == 'build_npm' ]]
           then
-            npm install
+            npm install && npm run build
           fi
       #- run: npm run build --if-present
       #- run: npm test
